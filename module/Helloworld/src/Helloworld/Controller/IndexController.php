@@ -9,6 +9,7 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-        return new ViewModel(array('greeting' => 'Hello world!'));
+        $greetingSrv = $this->getServiceLocator()->get('greetingService');
+        return new ViewModel(array('greeting' => $greetingSrv->getGreeting()));
     }
 }
